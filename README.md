@@ -2,7 +2,7 @@
 
 增强版数学建模 Codex skills 套件，用于把数学建模赛题从“题面与附件”推进到“模型路线、实验模板、论文草稿、Word 文档和最终 QA 报告”。
 
-本仓库基于 Codex 全局 skills 机制组织，**只使用全局路径 `~/.codex/skills`**。项目目录中不需要 `.trae/skills` 或项目内 `.codex/skills`。
+本仓库基于 Codex 全局 skills 机制组织，**只使用全局路径 `~/.codex/skills`**。
 
 ## 能做什么
 
