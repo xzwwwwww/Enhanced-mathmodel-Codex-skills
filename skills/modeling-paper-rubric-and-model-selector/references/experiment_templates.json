@@ -1,0 +1,26 @@
+{
+  "forecasting_regression": {
+    "template": "forecasting_regression.py",
+    "description": "线性回归/预测基线，输出预测值、残差和 RMSE/MAE/R2。"
+  },
+  "evaluation_ranking": {
+    "template": "evaluation_ranking.py",
+    "description": "熵权 TOPSIS 综合评价排序，输出权重和排名。"
+  },
+  "optimization_scheduling": {
+    "template": "optimization_scheduling.py",
+    "description": "小规模 0-1 选择优化基线，输出可行方案和最优方案。"
+  },
+  "clustering_profile": {
+    "template": "clustering_profile.py",
+    "description": "K-means 聚类基线，输出聚类标签和群体画像。"
+  },
+  "sensitivity_analysis": {
+    "template": "sensitivity_analysis.py",
+    "description": "参数扰动敏感性分析模板。"
+  },
+  "monte_carlo_simulation": {
+    "template": "monte_carlo_simulation.py",
+    "description": "蒙特卡洛不确定性仿真模板。"
+  }
+}

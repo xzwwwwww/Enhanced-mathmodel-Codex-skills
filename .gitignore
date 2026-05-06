@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+paper_output/
+problem_files/
+crawled_data/
+data_requirements.json

@@ -1,0 +1,98 @@
+{
+  "version": "1.0",
+  "purpose": "Structured math-modeling task rules for automatic routing, baseline selection, improvement planning, and validation design.",
+  "task_types": [
+    {
+      "id": "forecasting_regression",
+      "label": "预测与回归",
+      "triggers": ["预测", "趋势", "估计", "回归", "时间序列", "未来", "影响因素", "参数估计"],
+      "baseline_models": ["线性回归", "岭回归", "Lasso", "移动平均", "指数平滑", "ARIMA"],
+      "improved_models": ["随机森林", "XGBoost", "LightGBM", "SVR", "GAM", "状态空间模型", "LSTM"],
+      "metrics": ["RMSE", "MAE", "MAPE", "R2", "滚动回测误差"],
+      "validation": ["留出法", "K折交叉验证", "滚动回测", "残差分析", "置信区间"],
+      "risks": ["样本量不足", "非平稳", "过拟合", "外推失真"]
+    },
+    {
+      "id": "classification",
+      "label": "分类与识别",
+      "triggers": ["分类", "判别", "识别", "风险等级", "是否", "类别", "诊断"],
+      "baseline_models": ["逻辑回归", "朴素贝叶斯", "KNN", "决策树"],
+      "improved_models": ["随机森林", "XGBoost", "LightGBM", "SVM", "代价敏感学习"],
+      "metrics": ["Accuracy", "Precision", "Recall", "F1", "AUC", "PR-AUC"],
+      "validation": ["混淆矩阵", "阈值敏感性", "类别不平衡检查", "交叉验证"],
+      "risks": ["类别不均衡", "阈值选择不当", "只看准确率", "可解释性不足"]
+    },
+    {
+      "id": "evaluation_ranking",
+      "label": "综合评价与排序",
+      "triggers": ["评价", "排序", "打分", "权重", "综合指数", "优劣", "排名", "择优"],
+      "baseline_models": ["标准化加权和", "等权综合评价"],
+      "improved_models": ["熵权法", "CRITIC", "AHP", "组合赋权", "TOPSIS", "VIKOR", "灰色关联分析", "PCA"],
+      "metrics": ["排名稳定性", "权重敏感性", "Spearman相关", "一致性比率"],
+      "validation": ["权重扰动", "已知事实对照", "专家判断对照", "指标冗余检查"],
+      "risks": ["指标同向化错误", "权重来源不明", "量纲未处理", "排名不可解释"]
+    },
+    {
+      "id": "optimization_scheduling",
+      "label": "优化、调度、选址与路径",
+      "triggers": ["优化", "最小", "最大", "调度", "路径", "选址", "资源分配", "约束", "规划", "成本", "收益"],
+      "baseline_models": ["线性规划", "整数规划", "动态规划", "最短路", "最小生成树", "贪心策略"],
+      "improved_models": ["多目标规划", "鲁棒优化", "随机规划", "遗传算法", "模拟退火", "粒子群", "蚁群算法"],
+      "metrics": ["目标函数值", "约束违背率", "求解时间", "可行解比例", "相对改进率"],
+      "validation": ["可行性检查", "基准策略对照", "参数敏感性", "极端情景测试"],
+      "risks": ["约束遗漏", "启发式不可复现", "参数无依据", "只给解不解释"]
+    },
+    {
+      "id": "clustering_profile",
+      "label": "聚类、分群与画像",
+      "triggers": ["聚类", "分群", "画像", "模式", "相似", "类别发现", "无标签"],
+      "baseline_models": ["K-means", "层次聚类"],
+      "improved_models": ["GMM", "DBSCAN", "谱聚类", "聚类集成"],
+      "metrics": ["轮廓系数", "Calinski-Harabasz", "Davies-Bouldin", "稳定性"],
+      "validation": ["聚类数敏感性", "群体特征解释", "重复抽样稳定性", "降维可视化"],
+      "risks": ["聚类不可解释", "只看内部指标", "标准化缺失", "噪声影响"]
+    },
+    {
+      "id": "mechanism_simulation",
+      "label": "机理、仿真与系统动力学",
+      "triggers": ["机理", "仿真", "动力学", "微分方程", "差分方程", "传播", "演化", "情景"],
+      "baseline_models": ["差分方程", "微分方程", "守恒关系", "系统动力学"],
+      "improved_models": ["参数校准", "贝叶斯估计", "蒙特卡洛仿真", "数据驱动校正", "混合机理模型"],
+      "metrics": ["历史拟合误差", "参数敏感性", "情景一致性", "稳态误差"],
+      "validation": ["历史回放", "极端条件检查", "参数扰动", "不确定性传播"],
+      "risks": ["参数无来源", "方程假设过强", "情景不可验证", "单位不一致"]
+    },
+    {
+      "id": "network_graph",
+      "label": "网络、图论与传播",
+      "triggers": ["网络", "节点", "边", "图", "最短路", "最大流", "社区", "传播", "韧性"],
+      "baseline_models": ["中心性分析", "最短路", "最大流最小割", "PageRank", "社区发现"],
+      "improved_models": ["复杂网络鲁棒性", "传播模型", "图优化", "网络韧性优化"],
+      "metrics": ["连通性", "平均路径长度", "网络效率", "传播范围", "关键节点影响"],
+      "validation": ["节点删除实验", "边权扰动", "传播情景对照", "已知网络结构对照"],
+      "risks": ["网络构建规则不明", "边权无依据", "指标无法回答题目"]
+    }
+  ],
+  "combination_patterns": [
+    {
+      "id": "forecast_then_optimize",
+      "label": "预测 + 优化",
+      "workflow": ["先预测需求或关键参数", "把预测结果输入优化模型", "做预测误差对优化结果的敏感性分析"]
+    },
+    {
+      "id": "evaluate_then_cluster",
+      "label": "评价 + 聚类",
+      "workflow": ["先构建综合指标", "再按指标或原始特征分群", "解释每类对象的实际含义"]
+    },
+    {
+      "id": "mechanism_plus_data",
+      "label": "机理 + 数据驱动",
+      "workflow": ["先建立可解释机理模型", "再用数据驱动方法修正残差", "对比修正前后的拟合和泛化表现"]
+    },
+    {
+      "id": "graph_plus_optimization",
+      "label": "图论 + 优化",
+      "workflow": ["先定义节点、边和权重", "再做路径、选址、流量或韧性优化", "用扰动实验检验网络稳定性"]
+    }
+  ]
+}
