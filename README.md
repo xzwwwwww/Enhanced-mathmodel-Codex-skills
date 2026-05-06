@@ -1,4 +1,4 @@
-# Liuhuan MathModel Codex Skills
+# Enhance- MathModel Codex Skills
 
 增强版数学建模 Codex skills 套件。
 
